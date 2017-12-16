@@ -1,6 +1,5 @@
 package sdc;
 
-import java.lang.reflect.*;
 import java.util.ArrayList;
 
 public class Factory {
@@ -13,6 +12,7 @@ public class Factory {
 	// add all types or operation here
 	this.list.add("IntegerValue");
 	this.list.add("RationalValue");
+	this.list.add("BooleanValue");
 
 	//this.list.add("QuitSymbol");
 	this.list.add("ClearSymbol");
