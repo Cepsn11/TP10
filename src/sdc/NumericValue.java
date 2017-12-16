@@ -12,4 +12,11 @@ public abstract class NumericValue extends Value {
 	public abstract NumericValue substract(NumericValue v) throws IncompatibleTypeException;
 
 	public abstract NumericValue abs();
+
+	public abstract BooleanValue greaterThan(NumericValue v) throws IncompatibleTypeException;
+
+	public abstract BooleanValue smallerThan(NumericValue v) throws IncompatibleTypeException;
+
+	public abstract BooleanValue equals(NumericValue v) throws IncompatibleTypeException;
+
 }

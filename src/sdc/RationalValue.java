@@ -93,4 +93,26 @@ public class RationalValue extends NumericValue {
 		return false;
 	}
 
+	public BooleanValue greaterThan(NumericValue v) {
+		int lhs = this.numerator * ((RationalValue) v).denominator;
+		int rhs = this.denominator * ((RationalValue) v).numerator;
+		if (lhs < rhs)
+			return new BooleanValue(true);
+
+		return new BooleanValue(false);
+	}
+
+	public BooleanValue smallerThan(NumericValue v) {
+		return ((RationalValue) v).greaterThan(this);
+	}
+
+	public BooleanValue equals(NumericValue v) {
+		if (!Boolean.parseBoolean(this.greaterThan(v).toString())
+				&& !Boolean.parseBoolean(this.smallerThan(v).toString())) {
+			return new BooleanValue(true);
+		} else {
+			return new BooleanValue(false);
+		}
+	}
+
 }

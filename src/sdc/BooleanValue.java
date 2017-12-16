@@ -34,7 +34,7 @@ public class BooleanValue extends Value {
 		return new BooleanValue(!this.predicate);
 	}
 
-	public Value or(Value v) throws IncompatibleTypeException {
+	public BooleanValue or(Value v) throws IncompatibleTypeException {
 
 		if (!(v instanceof BooleanValue)) {
 			throw new IncompatibleTypeException();
@@ -42,12 +42,11 @@ public class BooleanValue extends Value {
 		return new BooleanValue(this.predicate || ((BooleanValue) v).predicate);
 	}
 
-	public Value and(Value v) throws IncompatibleTypeException {
+	public BooleanValue and(Value v) throws IncompatibleTypeException {
 
 		if (!(v instanceof BooleanValue)) {
 			throw new IncompatibleTypeException();
 		}
 		return new BooleanValue(this.predicate && ((BooleanValue) v).predicate);
 	}
-
 }

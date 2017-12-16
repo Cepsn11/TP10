@@ -25,6 +25,9 @@ public class Factory {
 		this.list.add("NotOperation");
 		this.list.add("AndOperation");
 		this.list.add("OrOperation");
+		this.list.add("SuperiorOperation");
+		this.list.add("InferiorOperation");
+		this.list.add("EqualsOperation");
 
 		this.list.add("AbsoluteValueOperation");
 	}

@@ -55,7 +55,6 @@ public class IntegerValue extends NumericValue {
 	}
 
 	public NumericValue substract(NumericValue v) throws IncompatibleTypeException {
-
 		if (!(v instanceof IntegerValue)) {
 			throw new IncompatibleTypeException();
 		}
@@ -72,4 +71,24 @@ public class IntegerValue extends NumericValue {
 		}
 	}
 
+	public BooleanValue greaterThan(NumericValue v) {
+		if (this.value < ((IntegerValue) v).value) {
+			return new BooleanValue(true);
+		} else {
+			return new BooleanValue(false);
+		}
+	}
+
+	public BooleanValue smallerThan(NumericValue v) {
+		return ((IntegerValue) v).greaterThan(this);
+	}
+
+	public BooleanValue equals(NumericValue v) {
+		if (!Boolean.parseBoolean(this.greaterThan(v).toString())
+				&& !Boolean.parseBoolean(this.smallerThan(v).toString())) {
+			return new BooleanValue(true);
+		} else {
+			return new BooleanValue(false);
+		}
+	}
 }
