@@ -15,16 +15,14 @@ public class BooleanValue extends Value {
 	}
 
 	public boolean parse(String s) {
-		try {
-			if (s.equals("true")) {
-				this.predicate = true;
-			} else if (s.equals("false")) {
-				this.predicate = false;
-			}
-		} catch (NumberFormatException e) {
-			return false;
+		if (s.equals("true")) {
+			this.predicate = true;
+			return true;
+		} else if (s.equals("false")) {
+			this.predicate = false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	public String toString() {
@@ -50,14 +48,6 @@ public class BooleanValue extends Value {
 			throw new IncompatibleTypeException();
 		}
 		return new BooleanValue(this.predicate && ((BooleanValue) v).predicate);
-	}
-
-	public boolean Value(Value v) throws IncompatibleTypeException {
-
-		if (!(v instanceof BooleanValue)) {
-			throw new IncompatibleTypeException();
-		}
-		return ((BooleanValue) v).predicate;
 	}
 
 }

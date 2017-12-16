@@ -11,7 +11,6 @@ public class ViewSymbol implements Symbol {
 	@Override
 	public boolean parse(String s) {
 		return s.equals("view");
-
 	}
 
 	@Override
@@ -19,5 +18,4 @@ public class ViewSymbol implements Symbol {
 		AtomicInteger counter = new AtomicInteger(s.size());
 		s.stream().forEach(v -> System.out.println(counter.getAndDecrement() + " ----> " + v));
 	}
-
 }
