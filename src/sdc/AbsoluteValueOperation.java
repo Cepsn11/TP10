@@ -11,7 +11,6 @@ public class AbsoluteValueOperation extends UnaryOperation {
 
 	@Override
 	public Value compute(Value v) throws IncompatibleTypeException {
-		return v.abs();
+		return ((NumericValue) v).abs();
 	}
-
 }
