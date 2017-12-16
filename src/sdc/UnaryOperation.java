@@ -3,7 +3,6 @@ package sdc;
 import java.util.Stack;
 
 import sdc.exceptions.IncompatibleTypeException;
-import sdc.exceptions.ShutdownException;
 
 public abstract class UnaryOperation implements Symbol {
 
@@ -11,9 +10,9 @@ public abstract class UnaryOperation implements Symbol {
 
 	@Override
 	public void execute(Stack<Value> s) throws IncompatibleTypeException {
-			Value v = s.pop();
-			s.push(this.compute(v));
-			
+		Value v = s.pop();
+		s.push(this.compute(v));
+
 	}
 
 }

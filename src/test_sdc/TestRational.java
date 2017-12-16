@@ -1,7 +1,9 @@
 package test_sdc;
 
-import junit.framework.*;
-import sdc.*;
+import junit.framework.TestCase;
+import sdc.SDC;
+import sdc.exceptions.IncompatibleTypeException;
+import sdc.exceptions.SymbolNotFoundException;
 
 public class TestRational extends TestCase {
 
