@@ -2,6 +2,8 @@ package sdc;
 
 import java.util.Stack;
 
+import sdc.exceptions.ShutdownException;
+
 public class ClearSymbol implements Symbol {
     
     public boolean parse(String s) {

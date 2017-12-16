@@ -12,14 +12,18 @@ public class Factory {
 
 	// add all types or operation here
 	this.list.add("IntegerValue");
+	this.list.add("RationalValue");
 
-	this.list.add("QuitSymbol");
+	//this.list.add("QuitSymbol");
 	this.list.add("ClearSymbol");
+	this.list.add("ViewSymbol");
 
 	this.list.add("AddOperation");
-	this.list.add("SubOperation");
+	//this.list.add("SubOperation");
 	this.list.add("DivOperation");
 	this.list.add("MulOperation");
+	
+	this.list.add("AbsoluteValueOperation");
     }
 
 

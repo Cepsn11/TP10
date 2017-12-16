@@ -2,6 +2,9 @@ package sdc;
 
 import java.util.Stack;
 
+import sdc.exceptions.IncompatibleTypeException;
+import sdc.exceptions.ShutdownException;
+
 public interface Symbol {
     // the root type. All features must be defined by inheriting from
     // this type and overriding routines Parse and Execute below.
@@ -14,4 +17,5 @@ public interface Symbol {
 
     //  Execute T, ie undertake the corresponding actions.
     public void execute(Stack<Value> s) throws ShutdownException, IncompatibleTypeException;
+    
 }

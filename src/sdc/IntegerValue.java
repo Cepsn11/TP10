@@ -1,5 +1,7 @@
 package sdc;
 
+import sdc.exceptions.IncompatibleTypeException;
+
 public class IntegerValue extends Value {
 
     private int value;

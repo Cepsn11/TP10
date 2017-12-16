@@ -2,6 +2,8 @@ package sdc;
 
 import java.util.Stack;
 
+import sdc.exceptions.IncompatibleTypeException;
+
 public abstract class BinaryOperation implements Symbol {
 
     public abstract Value compute(Value v1, Value v2) throws IncompatibleTypeException;

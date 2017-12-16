@@ -2,6 +2,8 @@ package sdc;
 
 import java.util.Stack;
 
+import sdc.exceptions.IncompatibleTypeException;
+
 public class MulOperation extends BinaryOperation {
 
     public boolean parse(String s) {

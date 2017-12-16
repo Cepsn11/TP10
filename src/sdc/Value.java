@@ -1,6 +1,9 @@
 package sdc;
 
+import sdc.exceptions.*;
 import java.util.Stack;
+
+import sdc.exceptions.IncompatibleTypeException;
 
 public abstract class Value implements Symbol {
 
