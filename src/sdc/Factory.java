@@ -13,10 +13,12 @@ public class Factory {
 		this.list.add("IntegerValue");
 		this.list.add("RationalValue");
 		this.list.add("BooleanValue");
+		// this.list.add("Variable");
 
 		// this.list.add("QuitSymbol");
 		this.list.add("ClearSymbol");
 		this.list.add("ViewSymbol");
+		this.list.add("AffectationSymbol");
 
 		this.list.add("AddOperation");
 		// this.list.add("SubOperation");
@@ -30,6 +32,7 @@ public class Factory {
 		this.list.add("EqualsOperation");
 
 		this.list.add("AbsoluteValueOperation");
+
 	}
 
 	public Symbol[] registered() throws InternalError {

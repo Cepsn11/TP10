@@ -1,5 +1,6 @@
 package sdc;
 
+import java.util.Map;
 import java.util.Stack;
 
 import sdc.exceptions.IncompatibleTypeException;
@@ -16,6 +17,6 @@ public interface Symbol {
 	public boolean parse(String s);
 
 	// Execute T, ie undertake the corresponding actions.
-	public void execute(Stack<Value> s) throws ShutdownException, IncompatibleTypeException;
+	public void execute(Stack<Value> s, Map<String, Value> store) throws ShutdownException, IncompatibleTypeException;
 
 }

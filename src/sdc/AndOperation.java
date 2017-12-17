@@ -1,6 +1,9 @@
 package sdc;
 
+import java.util.Stack;
+
 import sdc.exceptions.IncompatibleTypeException;
+import sdc.exceptions.ShutdownException;
 
 public class AndOperation extends BinaryOperation {
 

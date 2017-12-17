@@ -11,5 +11,4 @@ public class OrOperation extends BinaryOperation {
 	public Value compute(Value v1, Value v2) throws IncompatibleTypeException {
 		return ((BooleanValue) v1).or((BooleanValue) v2);
 	}
-
 }

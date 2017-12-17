@@ -11,5 +11,4 @@ public class SuperiorOperation extends BinaryOperation {
 	public Value compute(Value v1, Value v2) throws IncompatibleTypeException {
 		return ((NumericValue) v1).greaterThan((NumericValue) v2);
 	}
-
 }
