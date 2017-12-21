@@ -1,47 +1,65 @@
 package sdc;
 
-import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Factory {
 
-    private ArrayList<String> list;
+	private static final String PATH = "sdc.";
+	private ArrayList<String> list;
 
-    public Factory() {
-	this.list = new ArrayList<String>();
+	public Factory() {
+		this.list = new ArrayList<String>();
 
-	// add all types or operation here
-	this.list.add("IntegerValue");
+		/* Valeurs supportées par SDC */
+		this.list.add("value.IntegerValue");
+		this.list.add("value.RationalValue");
+		this.list.add("value.BooleanValue");
 
-	this.list.add("QuitSymbol");
-	this.list.add("ClearSymbol");
+		/* Commandes de contrôle */
+		this.list.add("control.QuitSymbol");
+		this.list.add("control.ClearSymbol");
+		this.list.add("control.ViewSymbol");
 
-	this.list.add("AddOperation");
-	this.list.add("SubOperation");
-	this.list.add("DivOperation");
-	this.list.add("MulOperation");
-    }
+		/* Opération numérique */
+		this.list.add("operation.AddOperation");
+		this.list.add("operation.SubOperation");
+		this.list.add("operation.DivOperation");
+		this.list.add("operation.MulOperation");
+		this.list.add("operation.AbsoluteValueOperation");
 
+		/* Opération de comparaison */
+		this.list.add("operation.SuperiorOperation");
+		this.list.add("operation.InferiorOperation");
+		this.list.add("operation.EqualsOperation");
 
-    public Symbol[] registered() throws InternalError {
-	ArrayList<Symbol> s = new ArrayList<Symbol>();
+		/* Opération booléenne */
+		this.list.add("operation.AndOperation");
+		this.list.add("operation.OrOperation");
+		this.list.add("operation.NotOperation");
 
-	for (String objectName : this.list) {
-	    objectName = "sdc." + objectName;
-	    s.add(this.createInstance(objectName));
+		/* Instructions */
+		this.list.add("instruction.Variable");
+		this.list.add("instruction.AffectationInstruction");
+		this.list.add("instruction.ConditionInstruction");
+
 	}
 
-	return s.toArray(new Symbol[this.list.size()]);
-    }
+	public Symbol[] registered() throws InternalError {
+		List<Symbol> s = this.list.stream().map(name -> this.createInstance(PATH + name)).collect(Collectors.toList());
 
-    private Symbol createInstance(String className) throws InternalError {
-	try {
-	    Class cl = Class.forName(className);
-	    java.lang.reflect.Constructor co = cl.getConstructor();
-	    return (Symbol) co.newInstance();
-	} catch (Exception e) {
-	    throw new InternalError();
+		return s.toArray(new Symbol[this.list.size()]);
 	}
-    }
+
+	private Symbol createInstance(String className) throws InternalError {
+		try {
+			Class cl = Class.forName(className);
+			java.lang.reflect.Constructor co = cl.getConstructor();
+			return (Symbol) co.newInstance();
+		} catch (Exception e) {
+			throw new InternalError();
+		}
+	}
 
 }
